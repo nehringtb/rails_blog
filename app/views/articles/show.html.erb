@@ -7,5 +7,12 @@
 	<strong>Text</strong>
 	<%= @article.text %>
 </p>
+ <p>Add a Comment</p>
+ <%= form_with( model: [ @article, @article.comments.build ], local: true ) do |form| %>
+	<p>
+		<%= form.label commenter %>
+		<%= form.text_field commenter %>
+<% end %>
+
 <%= link_to 'Back', articles_path %> |
 <%= link_to 'edit', edit_article_path(@article) %>
